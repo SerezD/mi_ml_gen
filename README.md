@@ -12,13 +12,11 @@ This is the official github repo for the paper: A Mutual Information Perspective
 ```
 # Dependencies Install 
 conda env create --file environment.yml
-conda activate gen_adversarial
+conda activate mi_ml_gen
 
-# package install (after cloning)
-pip install .
+# package install (in development mode)
+conda develop .
 ```
-
-*Note: Check the `pytorch-cuda` version in `environment.yml` to ensure it is compatible with your cuda version.*
 
 ## MLVGMS REFERENCES AND PRE-TRAINED MODELS
 

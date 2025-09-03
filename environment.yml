@@ -1,0 +1,29 @@
+name: mi_ml_gen
+channels:
+  - conda-forge
+  - nvidia
+dependencies:
+  - python=3.10
+  - conda-build
+  - nvidia::cuda-toolkit=12.4
+  - ninja=1.12
+  - cupy=13.2
+  - numba=0.56
+  - opencv=4.10
+  - libjpeg-turbo=3.0
+  - pkg-config=0.29
+  - pip
+  - pip:
+    - torch==2.4 --index-url https://download.pytorch.org/whl/cu124
+    - torchvision==0.19 --index-url https://download.pytorch.org/whl/cu124
+    - pytorch-lightning==2.3.3
+    - einops
+    - wandb
+    - scipy
+    - kornia
+    - matplotlib
+    - tqdm
+    - codecarbon
+    - ffcv
+    - ffcv_pl
+    - scheduling_utils
