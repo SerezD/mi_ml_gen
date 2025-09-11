@@ -4,8 +4,8 @@
 This is the official github repo for the paper: A Mutual Information Perspective on Multiple Latent Variable Generative Models for Positive View Generation (Accepted at TMLR)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![arXiv](https://img.shields.io/badge/arXiv-2412.03453-red)](https://arxiv.org/abs/2412.03453)
-<!--  [![WACV](https://img.shields.io/badge/WACV-2025-blue)](https://openaccess.thecvf.com/content/WACV2025/html/Serez_Pre-Trained_Multiple_Latent_Variable_Generative_Models_are_Good_Defenders_Against_WACV_2025_paper.html) -->
+<!-- [![arXiv](https://img.shields.io/badge/arXiv-2501.13718-red)](https://arxiv.org/abs/2501.13718) -->
+<!--  [![TMLR](https://img.shields.io/badge/journal-TMLR-blue.svg)](URL_HERE) -->
 
 ## INSTALLATION
 
@@ -15,33 +15,37 @@ conda env create --file environment.yml
 conda activate mi_ml_gen
 
 # package install (in development mode)
-conda develop .
+conda develop ./mi_ml_gen
 ```
 
 ## MLVGMS REFERENCES AND PRE-TRAINED MODELS
 
 ### BigBiGAN
 
-paper:  
-github: 
-pretrained model: 
+original paper: [Large Scale Adversarial Representation Learning](https://arxiv.org/abs/1907.02544)  
+used pretrained model (pytorch): [https://github.com/lukemelas/pytorch-pretrained-gans](https://github.com/lukemelas/pytorch-pretrained-gans)
 
 ### StyleGAN-2
 
-paper:  
-github: 
-pretrained model: 
+paper: [Analyzing and Improving the Image Quality of StyleGAN](https://arxiv.org/abs/1912.04958) 
+github (official-tensorflow): [https://github.com/NVlabs/stylegan2](https://github.com/NVlabs/stylegan2)
+pretrained model (official-pytorch): [https://github.com/NVlabs/stylegan2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch)
 
+<!-->
 ### NVAE 
 
 paper: [NVAE: A Deep Hierarchical Variational Autoencoder](https://arxiv.org/abs/2007.03898)  
 github (official): [https://github.com/NVlabs/NVAE](https://github.com/NVlabs/NVAE)  
 github (used implementation): [https://github.com/SerezD/NVAE-from-scratch](https://github.com/SerezD/NVAE-from-scratch)  
-pretrained model:
+<-->
 
-## OBTAIN DATASETS
+## DATASETS
 
-We load the pre-computed ffcv files for train, validation and testing at:  
+For training the "real-data" encoders, we use datasets in the ffcv format. 
+We load the precomputed files for ImageNet-1K and LSUN Cars at: [https://huggingface.co/SerezD/mi_ml_gen/tree/main/datasets](https://huggingface.co/SerezD/mi_ml_gen/tree/main/datasets)   
+
+Datasets for downstream tasks can be generated with the script at `mi_ml_gen/data/create_image_beton_file.py`
+
 
 ## TRAIN $T_\mathbf{z}(\mathbf{z})$
 
