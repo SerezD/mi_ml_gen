@@ -1,0 +1,22 @@
+data:
+  data_type: "bigbigan" # or stylegan
+  generator_path: "/home/user/runs/bigbigan/BigBiGAN_x1.pth" # null or generator_path
+  anchor_params: # null or iterable (mu, sigma, t)
+    - 0.
+    - 1.
+    - 2.
+  Tz: # null or iterable with groups and (mu, sigma, t) or walker_ckpt_path
+    "0_6":
+      - 0.
+      - 0.2
+      - 2.
+  Tx: simclr  # null, no_crop, no_color, simclr
+train:
+  max_epochs: 100
+  cumulative_bs: 1024
+  base_lr: 0.05  # final_lr = base_lr * cumulative_bs / 256
+  decay: True  # cosine decay
+  warmup: True # suggestion 10 epochs if bs >= 1024
+model:
+  dim: 2048
+  pred: 512

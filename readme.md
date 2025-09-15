@@ -31,13 +31,13 @@ paper: [Analyzing and Improving the Image Quality of StyleGAN](https://arxiv.org
 github (official-tensorflow): [https://github.com/NVlabs/stylegan2](https://github.com/NVlabs/stylegan2)
 pretrained model (official-pytorch): [https://github.com/NVlabs/stylegan2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch)
 
-<!-->
+<!--
 ### NVAE 
 
 paper: [NVAE: A Deep Hierarchical Variational Autoencoder](https://arxiv.org/abs/2007.03898)  
 github (official): [https://github.com/NVlabs/NVAE](https://github.com/NVlabs/NVAE)  
 github (used implementation): [https://github.com/SerezD/NVAE-from-scratch](https://github.com/SerezD/NVAE-from-scratch)  
-<-->
+-->
 
 ## DATASETS
 
@@ -51,7 +51,7 @@ Datasets for downstream tasks can be generated with the script at `mi_ml_gen/dat
 
 To train walkers, deciding which latents (chunks) to perturb, check the script at: `mi_ml_gen/src/noise_maker/cop_gen_training/train_navigator.py` 
 
-For example, to train the walker on latents 1-6 of bigbigan, run:
+For example, to train the walker on all latents except the first of bigbigan, run:
 ```
 python train_navigator.py --generator bigbigan --g_path ~/runs/bigbigan/BigBiGAN_x1.pth --chunks 1_6
 ```
@@ -64,13 +64,25 @@ To generate Table 1 in the paper (Monte Carlo simulation), run the script at `mi
 
 ## TRAIN ENCODERS (SimCLR, SimSiam, Byol)
 
-For the SimCLR results, we ...
+For the SimCLR results, we follow the experimental procedure of previous work, available at: [https://github.com/LiYinqi/COP-Gen/tree/master](https://github.com/LiYinqi/COP-Gen/tree/master)
 
-The pre-trained models that we used in the experiments are available at:  
+Therefore, this repo containst only the code for training _SimSiam_ and _Byol_ models, generating data with continuous sampling.  
+The configuration `.yaml` file for each model, containing training hyperparameters, can be found in the `mi_ml_gen/configurations/encoders` path.
+
+To train a new encoder from scratch, run the script: `mi_ml_gen/src/multiview_encoders/train_encoder.py`.  
+For example, to train _SimSiam_ encoder on _Imagenet-1K_ dataset (real data), run:
+
+```
+python mi_ml_gen/src/multiview_encoders/train_encoder.py --seed 0 --encoder simsiam --conf simsiam_bigbigan/encoder_imagenet_baseline_real --data_path /home/user/datasets/imagenet/ffcv/ --logging
+```
+
+_Note: please check the script file for a description of each argument._
+
+Pre-trained encoder models that we used in the experiments are available at: [https://huggingface.co/SerezD/mi_ml_gen/tree/main/runs/encoders/](https://huggingface.co/SerezD/mi_ml_gen/tree/main/runs/encoders/) 
 
 ## TRAIN AND TEST LINEAR CLASSIFIERS
 
-## NVAE ABLATIONS
+<!-- ## NVAE ABLATIONS -->
 
 ## CONTINUOS SAMPLING
 
@@ -88,7 +100,19 @@ To compare performance speed and reproduce results of Figure X, run:
     title     = {A Mutual Information Perspective on Multiple Latent Variable Generative Models for Positive View Generation},
     booktitle = {Transaction on Machine Learning Research (TMLR)},
     month     = {September},
+    year      = {2025}
+}
+```
+
+<!--
+```
+@inproceedings{serez2025pretrained,
+    author    = {Serez, Dario and Cristani, Marco and Del Bue, Alessio and Murino, Vittorio and Morerio, Pietro},
+    title     = {A Mutual Information Perspective on Multiple Latent Variable Generative Models for Positive View Generation},
+    booktitle = {Transaction on Machine Learning Research (TMLR)},
+    month     = {September},
     year      = {2025},
     pages     = {xxxx-xxxx}
 }
 ```
+-->

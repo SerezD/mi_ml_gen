@@ -1,0 +1,34 @@
+data:
+  data_type: "stylegan" # bigbigan or stylegan
+  generator_path: "/home/user/runs/stylegan2/generators/stylegan2-car-config-f.pkl" # null or generator_path
+  anchor_params: # null or iterable (mu, sigma, t)
+    - 0.
+    - 1.
+    - 0.9
+  Tz: # null or iterable with groups and (mu, sigma, t) or walker_ckpt_path
+    "0_4":
+      - 0.
+      - 0.2
+      - 1.
+    "4_8":
+      - 0.
+      - 0.1
+      - 1.
+    "8_12":
+      - 0
+      - 0.8
+      - 1
+    "12_16":
+      - 0
+      - 0.8
+      - 1.
+  Tx: no_color  # null, no_crop, no_color, simclr
+train:
+  max_epochs: 100
+  cumulative_bs: 512
+  base_lr: 0.05  # final_lr = base_lr * cumulative_bs / 256
+  decay: True  # cosine decay
+  warmup: False # suggestion: 1/10 epochs if bs >= 1024
+model:
+  dim: 2048
+  pred: 512

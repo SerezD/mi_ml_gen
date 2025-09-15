@@ -1,0 +1,15 @@
+data:
+  data_type: "stylegan" # bigbigan or stylegan
+  generator_path: null # null or generator_path
+  anchor_params: null # null or iterable (mu, sigma, t)
+  Tz: null # null or iterable (mu, sigma, t) or walker_ckpt_path
+  Tx: simclr  # null, no_crop, no_color, simclr
+train:
+  max_epochs: 100
+  cumulative_bs: 512
+  base_lr: 0.05  # final_lr = base_lr * cumulative_bs / 256
+  decay: True  # cosine decay
+  warmup: False # suggestion: 1/10 epochs if bs >= 1024
+model:
+  dim: 2048
+  pred: 512
