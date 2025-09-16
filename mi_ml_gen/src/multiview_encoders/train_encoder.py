@@ -97,7 +97,7 @@ def main(opt):
 
     # wandb logging
     offline = not opt.logging
-    p_name = 'lfm_mrl_ablations' if ('imagenet100' in opt.data_path or 'lsun80' in opt.data_path) else 'lfm_mrl'
+    p_name = 'mi_ml_gen'
     if train_conf['rank'] == 0:
         if opt.wandb_id is not None:
             logger = WandbLogger(project=p_name, name=opt.conf, offline=offline, id=opt.wandb_id, resume='must')

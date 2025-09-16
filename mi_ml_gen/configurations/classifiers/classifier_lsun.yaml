@@ -1,0 +1,5 @@
+train:
+  max_epochs: 100
+  cumulative_bs: 256
+  base_lr: 30.0  # final_lr = base_lr * cumulative_bs / 256
+  decay: True  # cosine decay

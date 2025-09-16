@@ -82,9 +82,31 @@ Pre-trained encoder models that we used in the experiments are available at: [ht
 
 ## TRAIN AND TEST LINEAR CLASSIFIERS
 
+After the encoder has been trained, it is possible to train a small mlp network for classification on several downstream datasets.  
+
+The configuration `.yaml` files, containing training hyperparameters, can be found in the `mi_ml_gen/configurations/classifiers` path.
+
+To train the classifiers, run the script at `mi_ml_gen/src/evaluations/classification/train_classifier.py`. For example, to train a classifier on a _Byol_ pre-trained encoder and on the _StanfordCars_ downstream task: 
+
+```
+python mi_ml_gen/src/evaluations/classification/train_classifier.py --encoder_path '/home/user/runs/mi_ml_gen/encoders/stylegan_byol/encoder_lsun_baseline_real/last.ckpt' --data_path '/home/user/datasets/StanfordCars/ffcv' --conf 'classifier_lsun' --dataset 'StanfordCars' --run_name 'tmp' --seed 0 --logging
+```
+
+_Note: please check the script file for a description of each argument._
+
+Pre-trained Linear Classifiers are available at: [https://huggingface.co/SerezD/mi_ml_gen/tree/main/runs/linear_classifiers/](https://huggingface.co/SerezD/mi_ml_gen/tree/main/runs/linear_classifiers/)
+
+As a last step, evaluations on the test set can be run with the script: `mi_ml_gen/src/evaluations/classification/eval_classifier.py`
+
+For example: 
+
+```
+python mi_ml_gen/src/evaluations/classification/eval_classifier.py --lin_cls_path '/home/user/runs/mi_ml_gen/linear_classifiers/stylegan_byol/LinCls-StanfordCars-encoder_lsun_chunks_learned_classifier_lr30_ep100_4218/last.ckpt' --data_path '/home/user/datasets/StanfordCars/ffcv/' --dataset 'StanfordCars' --batch_size 16 --out_log_file tmp
+```
+
 <!-- ## NVAE ABLATIONS -->
 
-## CONTINUOS SAMPLING
+## CONTINUOUS SAMPLING
 
 To compare performance speed and reproduce results of Figure X, run: 
 
