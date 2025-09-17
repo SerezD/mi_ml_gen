@@ -53,7 +53,7 @@ To train walkers, deciding which latents (chunks) to perturb, check the script a
 
 For example, to train the walker on all latents except the first of bigbigan, run:
 ```
-python train_navigator.py --generator bigbigan --g_path ~/runs/bigbigan/BigBiGAN_x1.pth --chunks 1_6
+python train_navigator.py --generator bigbigan --g_path ./runs/BigBiGAN_x1.pth --chunks 1_6
 ```
 
 _Note: learning rates for walkers and InfoNCE loss may vary depending on selected chunks, generator, and batch size. A rule of thumb is to keep them low (1e-5 order of magnitude), allowing smooth learning of the walkers._
@@ -73,7 +73,7 @@ To train a new encoder from scratch, run the script: `mi_ml_gen/src/multiview_en
 For example, to train _SimSiam_ encoder on _Imagenet-1K_ dataset (real data), run:
 
 ```
-python mi_ml_gen/src/multiview_encoders/train_encoder.py --seed 0 --encoder simsiam --conf simsiam_bigbigan/encoder_imagenet_baseline_real --data_path /home/user/datasets/imagenet/ffcv/ --logging
+python mi_ml_gen/src/multiview_encoders/train_encoder.py --seed 0 --encoder simsiam --conf simsiam_bigbigan/encoder_imagenet_baseline_real --data_path ./datasets/imagenet/ffcv/ --logging
 ```
 
 _Note: please check the script file for a description of each argument._
@@ -89,7 +89,7 @@ The configuration `.yaml` files, containing training hyperparameters, can be fou
 To train the classifiers, run the script at `mi_ml_gen/src/evaluations/classification/train_classifier.py`. For example, to train a classifier on a _Byol_ pre-trained encoder and on the _StanfordCars_ downstream task: 
 
 ```
-python mi_ml_gen/src/evaluations/classification/train_classifier.py --encoder_path '/home/user/runs/mi_ml_gen/encoders/stylegan_byol/encoder_lsun_baseline_real/last.ckpt' --data_path '/home/user/datasets/StanfordCars/ffcv' --conf 'classifier_lsun' --dataset 'StanfordCars' --run_name 'tmp' --seed 0 --logging
+python mi_ml_gen/src/evaluations/classification/train_classifier.py --encoder_path './runs/encoder_lsun_baseline_real/last.ckpt' --data_path './datasets/StanfordCars/ffcv' --conf 'classifier_lsun' --dataset 'StanfordCars' --run_name 'tmp' --seed 0 --logging
 ```
 
 _Note: please check the script file for a description of each argument._
@@ -101,17 +101,25 @@ As a last step, evaluations on the test set can be run with the script: `mi_ml_g
 For example: 
 
 ```
-python mi_ml_gen/src/evaluations/classification/eval_classifier.py --lin_cls_path '/home/user/runs/mi_ml_gen/linear_classifiers/stylegan_byol/LinCls-StanfordCars-encoder_lsun_chunks_learned_classifier_lr30_ep100_4218/last.ckpt' --data_path '/home/user/datasets/StanfordCars/ffcv/' --dataset 'StanfordCars' --batch_size 16 --out_log_file tmp
+python mi_ml_gen/src/evaluations/classification/eval_classifier.py --lin_cls_path './runs/LinCls-StanfordCars-encoder_lsun_chunks_learned_classifier/last.ckpt' --data_path './datasets/StanfordCars/ffcv/' --dataset 'StanfordCars' --batch_size 16 --out_log_file tmp
 ```
 
 <!-- ## NVAE ABLATIONS -->
 
 ## CONTINUOUS SAMPLING
 
-To compare performance speed and reproduce results of Figure X, run: 
+To compare performance speed and reproduce results of Figure 5, run: 
 
 ```
-...
+python mi_ml_gen/src/test_online_learning/train_offline.py --loader [ffcv, torch] --dataset_path ./datasets/imagenet/
+```
+
+where `./datasets/imagenet/` contains `train/*.png` files and `ffcv/train.beton`.  
+
+Then run:
+
+```
+python mi_ml_gen/src/test_online_learning/train_online.py --generator_path ./runs/BigBiGAN_x1.pth
 ```
 
 ## CITATION
@@ -121,7 +129,6 @@ To compare performance speed and reproduce results of Figure X, run:
     author    = {Serez, Dario and Cristani, Marco and Del Bue, Alessio and Murino, Vittorio and Morerio, Pietro},
     title     = {A Mutual Information Perspective on Multiple Latent Variable Generative Models for Positive View Generation},
     booktitle = {Transaction on Machine Learning Research (TMLR)},
-    month     = {September},
     year      = {2025}
 }
 ```
@@ -132,7 +139,7 @@ To compare performance speed and reproduce results of Figure X, run:
     author    = {Serez, Dario and Cristani, Marco and Del Bue, Alessio and Murino, Vittorio and Morerio, Pietro},
     title     = {A Mutual Information Perspective on Multiple Latent Variable Generative Models for Positive View Generation},
     booktitle = {Transaction on Machine Learning Research (TMLR)},
-    month     = {September},
+    month     = {xxxxx},
     year      = {2025},
     pages     = {xxxx-xxxx}
 }
