@@ -27,9 +27,9 @@ used pretrained model (pytorch): [https://github.com/lukemelas/pytorch-pretraine
 
 ### StyleGAN-2
 
-paper: [Analyzing and Improving the Image Quality of StyleGAN](https://arxiv.org/abs/1912.04958) 
-github (official-tensorflow): [https://github.com/NVlabs/stylegan2](https://github.com/NVlabs/stylegan2)
-pretrained model (official-pytorch): [https://github.com/NVlabs/stylegan2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch)
+paper: [Analyzing and Improving the Image Quality of StyleGAN](https://arxiv.org/abs/1912.04958)   
+github (official-tensorflow): [https://github.com/NVlabs/stylegan2](https://github.com/NVlabs/stylegan2)   
+pretrained model (official-pytorch): [https://github.com/NVlabs/stylegan2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch)   
 
 <!--
 ### NVAE 
@@ -41,10 +41,13 @@ github (used implementation): [https://github.com/SerezD/NVAE-from-scratch](http
 
 ## DATASETS
 
-For training the "real-data" encoders, we use datasets in the ffcv format. 
-We load the precomputed files for ImageNet-1K and LSUN Cars at: [https://huggingface.co/SerezD/mi_ml_gen/tree/main/datasets](https://huggingface.co/SerezD/mi_ml_gen/tree/main/datasets)   
+For training the "real-data" encoders, we use datasets in the ffcv format.   
 
-Datasets for downstream tasks can be generated with the script at `mi_ml_gen/data/create_image_beton_file.py`
+We load the precomputed files for ImageNet-1K and LSUN Cars at:   
+[https://huggingface.co/SerezD/mi_ml_gen/tree/main/datasets](https://huggingface.co/SerezD/mi_ml_gen/tree/main/datasets)   
+
+Datasets for downstream tasks can be generated with the script:  
+`mi_ml_gen/data/create_image_beton_file.py`
 
 ## GENERATE MULTIPLE VIEWS 
 
@@ -54,7 +57,9 @@ If your interest is to use the repository just for view generation, simply run t
 python mi_ml_gen/src/scripts/view_generation.py --configuration ./conf.yaml --save_folder ./tmp/
 ```
 
-Examples of valid configurations are at: `mi_ml_gen/configurations/view_generation/bigbigan.yaml` and `mi_ml_gen/configurations/view_generation/stylegan.yaml`.  
+Examples of valid configurations are:  
+ `mi_ml_gen/configurations/view_generation/bigbigan.yaml`  
+ `mi_ml_gen/configurations/view_generation/stylegan.yaml`.  
 
 For example, they allow to generate things like:   
 
