@@ -46,6 +46,21 @@ We load the precomputed files for ImageNet-1K and LSUN Cars at: [https://hugging
 
 Datasets for downstream tasks can be generated with the script at `mi_ml_gen/data/create_image_beton_file.py`
 
+## GENERATE MULTIPLE VIEWS 
+
+If your interest is to use the repository just for view generation, simply run the script: 
+
+```
+python mi_ml_gen/src/scripts/view_generation.py --configuration ./conf.yaml --save_folder ./tmp/
+```
+
+Examples of valid configurations are at: `mi_ml_gen/configurations/view_generation/bigbigan.yaml` and `mi_ml_gen/configurations/view_generation/stylegan.yaml`.  
+
+For example, they allow to generate things like:   
+
+![b_var=0](images/b_var=0.png) ![b_var=1](images/b_var=1.png) ![b_var=2](images/b_var=2.png) ![b_var=3](images/b_var=3.png)
+
+![s_var=0](images/s_var=0.png) ![s_var=1](images/s_var=1.png) ![s_var=2](images/s_var=2.png) ![s_var=3](images/s_var=3.png)
 
 ## TRAIN $T_\mathbf{z}(\mathbf{z})$ and Monte Carlo Simulation
 

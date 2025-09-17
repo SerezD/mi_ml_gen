@@ -1,0 +1,15 @@
+generator: "bigbigan" # bigbigan or stylegan
+generator_path: "/home/user/runs/bigbigan/BigBiGAN_x1.pth"
+anchor_params:
+  - 0.
+  - 1.
+  - 2.
+Tz:
+  "1_6":
+    - 0.
+    - 1.
+    - 2.
+n_images: 4  # how many "anchors"
+batch_size: 1  # divisible by n_images
+augmentations: 3  # how many augmentations to generate, in addition to n_images
+starting_seed: 42  # will increment at each batch

@@ -1,0 +1,27 @@
+generator: "stylegan" # bigbigan or stylegan
+generator_path: "/home/user/runs/stylegan2/generators/stylegan2-car-config-f.pkl"
+anchor_params:
+  - 0.
+  - 1.
+  - 0.9
+Tz:
+  "0_4":
+    - 0.
+    - 0.2
+    - 1.
+  "4_8":
+    - 0.
+    - 0.1
+    - 1.
+  "8_12":
+    - 0
+    - 0.8
+    - 1
+  "12_16":
+    - 0
+    - 0.8
+    - 1.
+n_images: 4  # how many "anchors"
+batch_size: 2  # divisible by n_images
+augmentations: 3  # how many augmentations to generate, in addition to n_images
+starting_seed: 42  # will increment at each batch
