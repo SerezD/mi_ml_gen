@@ -4,8 +4,8 @@
 This is the official github repo for the paper: A Mutual Information Perspective on Multiple Latent Variable Generative Models for Positive View Generation (Accepted at TMLR)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-<!-- [![arXiv](https://img.shields.io/badge/arXiv-2501.13718-red)](https://arxiv.org/abs/2501.13718) -->
-<!--  [![TMLR](https://img.shields.io/badge/journal-TMLR-blue.svg)](URL_HERE) -->
+[![arXiv](https://img.shields.io/badge/arXiv-2501.13718-red)](https://arxiv.org/abs/2501.13718)
+[![TMLR](https://img.shields.io/badge/journal-TMLR-blue.svg)](https://openreview.net/forum?id=uaj8ZL2PtK)
 
 ## INSTALLATION
 
@@ -145,23 +145,15 @@ python mi_ml_gen/src/test_online_learning/train_online.py --generator_path ./run
 ## CITATION
 
 ```
-@inproceedings{serez2025pretrained,
-    author    = {Serez, Dario and Cristani, Marco and Del Bue, Alessio and Murino, Vittorio and Morerio, Pietro},
-    title     = {A Mutual Information Perspective on Multiple Latent Variable Generative Models for Positive View Generation},
-    booktitle = {Transaction on Machine Learning Research (TMLR)},
-    year      = {2025}
+@article{
+    serez2025a,
+    title={A Mutual Information Perspective on Multiple Latent Variable Generative Models for Positive View Generation},
+    author={Dario Serez and Marco Cristani and Alessio Del Bue and Vittorio Murino and Pietro Morerio},
+    journal={Transactions on Machine Learning Research},
+    issn={2835-8856},
+    year={2025},
+    url={https://openreview.net/forum?id=uaj8ZL2PtK},
+    note={}
 }
 ```
 
-<!--
-```
-@inproceedings{serez2025pretrained,
-    author    = {Serez, Dario and Cristani, Marco and Del Bue, Alessio and Murino, Vittorio and Morerio, Pietro},
-    title     = {A Mutual Information Perspective on Multiple Latent Variable Generative Models for Positive View Generation},
-    booktitle = {Transaction on Machine Learning Research (TMLR)},
-    month     = {xxxxx},
-    year      = {2025},
-    pages     = {xxxx-xxxx}
-}
-```
--->
